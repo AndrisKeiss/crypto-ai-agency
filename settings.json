@@ -1,0 +1,198 @@
+[
+    {
+        "id": "asst_BAB8MfThb1XKpigkpPclr3ul",
+        "created_at": 1730708225,
+        "description": "Specialized agent for analyzing Reddit sentiment about cryptocurrencies.",
+        "instructions": "# Agent Role\nAs the Reddit Analyzer, you are responsible for analyzing cryptocurrency-related discussions on Reddit to identify trending cryptocurrencies and gauge community sentiment.\n\n# Goals\n1. Accurately identify trending cryptocurrencies from Reddit discussions\n2. Perform reliable sentiment analysis on cryptocurrency mentions\n3. Track mention frequency and sentiment scores\n4. Stay within Reddit API rate limits\n5. Provide clear and structured sentiment data\n\n# Process Workflow\n1. Data Collection\n   - Connect to specified subreddits\n   - Collect recent posts and comments within the time frame\n   - Respect Reddit API rate limits\n\n2. Sentiment Analysis\n   - Process collected text data\n   - Identify cryptocurrency mentions\n   - Calculate sentiment scores for each mention\n   - Track mention frequency\n\n3. Data Aggregation\n   - Combine sentiment scores for each cryptocurrency\n   - Calculate average sentiment and total mentions\n   - Rank cryptocurrencies by popularity and sentiment\n   - Filter out noise and irrelevant mentions\n\n4. Results Reporting\n   - Format sentiment analysis results\n   - Include mention counts and sentiment scores\n   - Report results back to Report Generator\n   - Flag any potential issues or anomalies\n\nRemember to:\n- Focus on accuracy and reliability\n- Maintain efficient processing\n- Handle API errors gracefully\n- Provide structured, actionable data",
+        "metadata": {},
+        "model": "gpt-4o-mini",
+        "name": "Reddit Analyzer",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "RedditSentimentTool",
+                    "description": "A tool for analyzing sentiment and trends from crypto-related subreddits.\nUses PRAW for Reddit access and NLTK for sentiment analysis.",
+                    "parameters": {
+                        "properties": {
+                            "subreddits": {
+                                "default": "CryptoCurrency,Bitcoin",
+                                "description": "Comma-separated list of subreddits to analyze",
+                                "title": "Subreddits",
+                                "type": "string"
+                            },
+                            "time_filter": {
+                                "default": "day",
+                                "description": "Time filter for posts (hour, day, week, month, year, all)",
+                                "title": "Time Filter",
+                                "type": "string"
+                            },
+                            "limit": {
+                                "default": 100,
+                                "description": "Number of posts to analyze per subreddit",
+                                "title": "Limit",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object",
+                        "required": []
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    },
+    {
+        "id": "asst_auLuJPxl7vEjMrQslAEZ80vw",
+        "created_at": 1730708225,
+        "description": "Specialized agent for generating comprehensive cryptocurrency analysis reports combining market data and sentiment analysis.",
+        "instructions": "# Agent Role\n\nYou are a Report Generator specialized in creating comprehensive cryptocurrency analysis reports that combine market data and sentiment analysis. You are responsible for collecting, analyzing, and presenting both price data and sentiment information in a clear, structured format.\n\n# Goals\n\n1. Generate detailed, well-structured reports that combine price data and sentiment analysis\n2. Present data in an easy-to-understand format with clear sections\n3. Provide actionable insights based on both market and sentiment data\n4. Ensure consistency in report formatting and presentation\n5. Highlight key findings and trends\n\n# Process Workflow\n\n1. Collect market data using the market_data_tool\n2. Request and process sentiment data from the Reddit Analyzer\n3. Analyze correlations between price movements and sentiment\n4. Generate a comprehensive report combining all data\n\n# Report Structure\n\nEach report includes:\n- Analysis scope and metadata\n- Per-cryptocurrency analysis\n  - Price and market metrics\n  - Sentiment analysis\n  - Integrated insights\n  - Trading implications\n- Market-wide summary\n- Risk assessment",
+        "metadata": {},
+        "model": "gpt-4o-mini",
+        "name": "Report Generator",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "MarketDataTool",
+                    "description": "A tool for fetching cryptocurrency market data using the CoinGecko API.",
+                    "parameters": {
+                        "properties": {
+                            "crypto_ids": {
+                                "description": "List of cryptocurrency IDs to fetch data for",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "title": "Crypto Ids",
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "crypto_ids"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            },
+            {
+                "function": {
+                    "name": "ReportGeneratorTool",
+                    "description": "A tool for generating comprehensive cryptocurrency reports that combine market data and sentiment analysis.",
+                    "parameters": {
+                        "properties": {
+                            "price_data": {
+                                "description": "Dictionary containing price and market data for multiple cryptocurrencies",
+                                "title": "Price Data",
+                                "type": "object"
+                            },
+                            "sentiment_data": {
+                                "description": "Dictionary containing sentiment analysis data for multiple cryptocurrencies",
+                                "title": "Sentiment Data",
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "price_data",
+                            "sentiment_data"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            },
+            {
+                "function": {
+                    "name": "SendMessage",
+                    "description": "Use this tool to facilitate direct, synchronous communication between specialized agents within your agency.",
+                    "parameters": {
+                        "$defs": {
+                            "recipient": {
+                                "const": "Reddit Analyzer",
+                                "enum": [
+                                    "Reddit Analyzer"
+                                ],
+                                "title": "recipient",
+                                "type": "string"
+                            }
+                        },
+                        "properties": {
+                            "my_primary_instructions": {
+                                "description": "Your primary instructions and next steps",
+                                "title": "My Primary Instructions",
+                                "type": "string"
+                            },
+                            "recipient": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/$defs/recipient"
+                                    }
+                                ],
+                                "description": "Reddit Analyzer: Specialized agent for analyzing Reddit sentiment about cryptocurrencies."
+                            },
+                            "message": {
+                                "description": "The task or request for the recipient agent",
+                                "title": "Message",
+                                "type": "string"
+                            },
+                            "message_files": {
+                                "anyOf": [
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "Optional file attachments",
+                                "title": "Message Files"
+                            },
+                            "additional_instructions": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "default": null,
+                                "description": "Additional context or instructions",
+                                "title": "Additional Instructions"
+                            }
+                        },
+                        "required": [
+                            "message",
+                            "my_primary_instructions",
+                            "recipient"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    }
+]

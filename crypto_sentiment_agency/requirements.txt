@@ -1,0 +1,7 @@
+agency-swarm
+praw
+nltk
+spacy
+requests
+python-dotenv
+pyyaml

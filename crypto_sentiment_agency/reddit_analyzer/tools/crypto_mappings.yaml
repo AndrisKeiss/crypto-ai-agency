@@ -1,0 +1,154 @@
+# Layer 1 Blockchains
+
+# Bitcoin ecosystem
+bitcoin: bitcoin
+btc: bitcoin
+xbt: bitcoin
+bitcoins: bitcoin
+bitcoin cash: bitcoin-cash
+bch: bitcoin-cash
+
+# Ethereum ecosystem
+ethereum: ethereum
+eth: ethereum
+ether: ethereum
+ethereum2: ethereum
+eth2: ethereum
+eth 2.0: ethereum
+ethw: ethereum
+eths: ethereum
+
+# Binance ecosystem
+binance: binancecoin
+bnb: binancecoin
+binance coin: binancecoin
+binance smart chain: binancecoin
+bsc: binancecoin
+binance token: binancecoin
+
+# Solana ecosystem
+solana: solana
+sol: solana
+solanas: solana
+sols: solana
+
+# Cardano ecosystem
+cardano: cardano
+ada: cardano
+adas: cardano
+cardanos: cardano
+
+# Popular Meme Tokens
+dogecoin: dogecoin
+doge: dogecoin
+doges: dogecoin
+doggy: dogecoin
+dogecoins: dogecoin
+shiba: shiba-inu
+shib: shiba-inu
+shiba inu: shiba-inu
+shibs: shiba-inu
+shiba token: shiba-inu
+pepe: pepe
+pepe coin: pepe
+pepecoin: pepe
+pepes: pepe
+
+# DeFi Protocols
+uniswap: uniswap
+uni: uniswap
+uniswaps: uniswap
+uni token: uniswap
+aave: aave
+aave token: aave
+aaves: aave
+chainlink: chainlink
+link: chainlink
+chain link: chainlink
+links: chainlink
+
+# Stablecoins
+tether: tether
+usdt: tether
+tethertoken: tether
+usd tether: tether
+usdc: usd-coin
+usd coin: usd-coin
+usdc coin: usd-coin
+dai: dai
+dai token: dai
+dai stablecoin: dai
+maker dai: dai
+
+# Layer 2 Solutions
+polygon: polygon
+matic: polygon
+polygon matic: polygon
+optimism: optimism
+op: optimism
+ops: optimism
+arbitrum: arbitrum
+arb: arbitrum
+arbitrum one: arbitrum
+arbs: arbitrum
+
+# Exchange Tokens
+crypto.com: crypto-com-chain
+cro: crypto-com-chain
+cronos: crypto-com-chain
+kucoin: kucoin-token
+kcs: kucoin-token
+kucoin token: kucoin-token
+
+# Privacy Coins
+monero: monero
+xmr: monero
+moneros: monero
+zcash: zcash
+zec: zcash
+zcashs: zcash
+
+# Gaming & Metaverse
+decentraland: decentraland
+mana: decentraland
+dcl: decentraland
+sandbox: the-sandbox
+sand: the-sandbox
+sandboxgame: the-sandbox
+axie: axie-infinity
+axs: axie-infinity
+axie infinity: axie-infinity
+gala: gala
+gala games: gala
+galagames: gala
+
+# AI & Data Tokens
+graph: the-graph
+grt: the-graph
+graphtoken: the-graph
+ocean: ocean-protocol
+ocean protocol: ocean-protocol
+oceanprotocol: ocean-protocol
+fetch.ai: fetch-ai
+fet: fetch-ai
+fetch ai: fetch-ai
+singularitynet: singularitynet
+agix: singularitynet
+snet: singularitynet
+
+# Other Major Tokens
+ripple: ripple
+xrp: ripple
+ripples: ripple
+xrps: ripple
+polkadot: polkadot
+dot: polkadot
+dots: polkadot
+polkadots: polkadot
+avalanche: avalanche-2
+avax: avalanche-2
+avalanches: avalanche-2
+cosmos: cosmos
+atom: cosmos
+atoms: cosmos
+cosmos hub: cosmos 
